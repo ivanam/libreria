@@ -1,0 +1,5 @@
+README
+correr en windows con
+set DEBUG=liberbook:* & npm start
+en linux con:
+$ DEBUG=liberbook:* npm start
