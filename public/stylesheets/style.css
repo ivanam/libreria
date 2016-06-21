@@ -1,8 +1,30 @@
+/*Css 
+#03B2AB celeste oscuro
+#86FFFA celeste claro
+#49FFF7 agua marina
+#B28770 marron
+#FF630F naranja*/
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #86FFFA;
+  border-color:#03B2AB;
 }
 
 a {
   color: #00B7FF;
 }
+
+.jumbotron{
+background-color: #B28770;
+}
+.navbar-default {
+    background-color: #FF630F;
+    border-color: #49FFF7;
+}
+h1 {font-family: 'Kaushan Script', cursive;}
+#formularioLogin{
+  width: 40%;
+  margin: 0 auto;
+}
+ 

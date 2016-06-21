@@ -92,7 +92,6 @@ app.get('*', function(req, res) {
     res.sendfile('./public/index.html');                
 });
 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -123,6 +122,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
 // Escucha en el puerto 8080 y corre el server
 app.listen(8080, function() {  
     console.log('Liberbook corriendo en 8080');
