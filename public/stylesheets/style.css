@@ -14,8 +14,13 @@ a {
 }
 
 .jumbotron{
-background-color: red;
+background-color: #5B1F03;
 }
+.jumbotron h1{
+color:#FFAF1B;
+
+}
+
 .navbar-default {
     background-color: black;
     border-color: black;
