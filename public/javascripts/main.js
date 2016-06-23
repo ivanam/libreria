@@ -37,4 +37,18 @@ function mainController($scope, $http) {
                 console.log('Error:' + data);
             });
     };
+
+
+}
+
+function mostrar_libro(id) {  
+        console.log('something');
+        armarModal(id);
+        $("#myModal").modal("show");
+    }
+
+
+function armarModal(id){
+    $("#title").text("");
+
 }
