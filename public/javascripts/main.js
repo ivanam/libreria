@@ -41,9 +41,7 @@ function mainController($scope, $http) {
 
 }
 
-function mostrar_libro(id) {  
-        console.log('something');
-        $("#myModal").modal("show");
-}
+
+
 
 

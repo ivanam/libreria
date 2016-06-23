@@ -1,5 +1,5 @@
 script(src='/javascripts/main.js')
-include modal.jade
+
 
 container
 			each x in [0,1,2,3,4,5,6,7,8]
@@ -9,12 +9,17 @@ container
 					.thumbnail
 						a.responsive
 							center 
-								button(style='text-align: center' , onclick='mostrar_libro(this.x)') 
+								a.btn(data-toggle="modal", href="#myModal")
 									img(src=valores[x].volumeInfo.imageLinks.thumbnail, class='img-thumbnail')
 					.caption
 						h3=valores[x].volumeInfo.title
 
 
 
-
-
+div.modal.hide(id="myModal")
+	.modal-header
+		button(type="button", class="close", data-dismiss="modal") x
+		h3 Modal Header
+	.modal-body
+		p One fine body...
+	.modal-footer
