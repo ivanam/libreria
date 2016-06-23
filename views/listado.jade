@@ -1,9 +1,25 @@
+script(src='/javascripts/main.js')
+
+
 container
-			each x in [0,1,2,3,4,5,6,7,8,9]
+			each x in [0,1,2,3,4,5,6,7,8]
 				if x == 0 || x == 3 || x == 6 || x == 9
 					.row
 				.col-md-4.col-xs-12
 					.thumbnail
-						img(src=valores[x].volumeInfo.imageLinks.thumbnail)
+						a.responsive
+							center 
+								a.btn(data-toggle="modal", href="#myModal")
+									img(src=valores[x].volumeInfo.imageLinks.thumbnail, class='img-thumbnail')
 					.caption
 						h3=valores[x].volumeInfo.title
+
+
+
+div.modal.hide(id="myModal")
+	.modal-header
+		button(type="button", class="close", data-dismiss="modal") x
+		h3 Modal Header
+	.modal-body
+		p One fine body...
+	.modal-footer
