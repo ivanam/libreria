@@ -19,9 +19,12 @@ var LibroModel = mongoose.model('LibroModel',{
     }
 });
 
-/* GET users listing. */
+/* 
+	Ruta para consultar todos los libros
+	almacenados en la base de datos
+*/
 router.get('/', function(req, res, next) {
-	LibroModel.find(function(err, libros) {
+	LibroModel.find({},function(err, libros) {
 	    if(err) {
 	        res.send(err);
 	    }
@@ -32,7 +35,7 @@ router.get('/', function(req, res, next) {
 
 /*
 	Ruta para consultar por un libro en particular
-	segun su ID.
+	segun su titulo.
 */
 router.get('/:title',function(req,res, next){
 
@@ -41,16 +44,17 @@ router.get('/:title',function(req,res, next){
 		
 		if (docs.length != 0){
 
+			res.json(docs);
+
+		}else{
+			//res.send("ESTE LIBRO NO SE ENCUENTRA DISPONIBLE EN LA BASE DE DATOS");
 			var id = docs[0].title;
 
 			client.get("https://www.googleapis.com/books/v1/volumes?q="+id, function(data,response){
 		
-				//res.send(data["items"][0]);
-				res.render("listado.jade", {valores:data["items"]});
+				res.send(data["items"][0]);
+				//res.render("listado.jade", {valores:data["items"]});
 			});
-
-		}else{
-			res.send("ESTE LIBRO NO SE ENCUENTRA DISPONIBLE EN LA BASE DE DATOS");
 		}
 
 	});
@@ -60,8 +64,8 @@ router.get('/:title',function(req,res, next){
 router.post('/',function(req, res, next){
 
 	var libro = LibroModel();
-	libro._id = "leandro";
-	libro.title = "leandro titulo";
+	libro._id = "leandro1";
+	libro.title = "leandro titulo2";
 	libro.precios_locales = [30.2];
 	libro.reactions.sad = 0;
 	libro.reactions.angry = 0;
@@ -69,86 +73,46 @@ router.post('/',function(req, res, next){
 	libro.reactions.haha = 0;
 	libro.reactions.wow = 0;
 	libro.save();
-	next();
+	res.end();
 });
-
-
 
 /*
-	Ruta para consultar por un libro en particular
-	segun su titulo
+	Ruta que devuelve las reacciones para
+	un libro en particular
 */
-router.get('/titulo/:title',function(req,res, next){
+router.get('/:title/reactions',function(req,res,next){
 
-	var title = req.params.title;
-	res.send("api rest funciona con " + title);
+	LibroModel.find({title:req.params.title}, function(err,docs){
+
+		
+		if (docs.length != 0){
+			res.json(docs[0].reactions);
+
+		}else{
+			res.json({});
+		}
+
+	});
 });
 
-router.get('/buscador/:title',function(req,res, next){
+/*
+	Ruta que permite incrementar la cantidad en
+	uno de una reaccion en particular de un libro
+*/
+router.post('/:title/reactions/:reaction',function(req, res, next){
 
-	res.send("api rest funciona con " + req.params.title);
+	LibroModel.find({title:req.params.title}, function(err,docs){
+		
+		if (docs.length != 0){
+
+			var valor = docs[0].reactions[req.params.reaction];
+			docs[0].reactions[req.params.reaction] = valor + 1;
+			docs[0].save();
+			res.end();
+		}
+
+	});
 });
-
-
-
-
-// / Rutas de nuestro API
-// // GET de libro los Libro
-// app.get('/api/libros', function(req, res) {  
-//     console.log("app.get libros");
-//     Libro.find(function(err, libros) {
-//         if(err) {
-//             res.send(err);
-//         }
-//         res.json(libros);
-//     });
-// });
-
-
-// //debería meterlo en un modulo API
-// // POST que crea un Libro y devuelve libros tras la creación
-// app.post('/api/libros', function(req, res) {  
-//     console.log("app.post libros");
-//     Libro.create({
-//         text: req.body.text,
-//         done: false
-//     }, function(err, libro){
-//         if(err) {
-//             res.send(err);
-//         }
-
-//         Libro.find(function(err, libros) {
-//             if(err){
-//                 res.send(err);
-//             }
-//             res.json(libros);
-//         });
-//     });
-// });
-
-// // DELETE un Libro específico y devuelve libros tras borrarlo.
-// app.delete('/api/libros/:libro', function(req, res) {  
-//     console.log("app.delete libros");
-//     Libro.remove({
-//         _id: req.params.libro
-//     }, function(err, libro) {
-//         if(err){
-//             res.send(err);
-//         }
-
-//         Libro.find(function(err, libros) {
-//             if(err){
-//                 res.send(err);
-//             }
-//             res.json(libros);
-//         });
-
-//     })
-// });
-
-
-
-
 
 
 

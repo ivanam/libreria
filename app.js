@@ -31,10 +31,8 @@ app.use('/users', users);
     Definicion de las rutas del servidor
 */
 app.use('/', routes);
-app.use('/libro', libros);
-app.use('/libro/titulo/',libros);
-app.use('/libro/buscador',libros);
-
+app.use('/api/libro', libros);
+app.use('/api/libro/:title/reactions', libros);
 
 
 // catch 404 and forward to error handler
