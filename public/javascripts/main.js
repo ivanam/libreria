@@ -43,12 +43,7 @@ function mainController($scope, $http) {
 
 function mostrar_libro(id) {  
         console.log('something');
-        armarModal(id);
         $("#myModal").modal("show");
-    }
-
-
-function armarModal(id){
-    $("#title").text("");
-
 }
+
+
