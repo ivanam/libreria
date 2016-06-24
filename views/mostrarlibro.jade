@@ -1,0 +1,26 @@
+doctype html
+head
+	meta(charset="UTF-8")
+	meta(name="viewport", content="width=device-width, initial-scale=1")
+	title TP3 - AppWeb - LiberBook
+	link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css")
+	
+body
+	.container
+		.col-md-6
+			esta parte
+		.col-md-6
+			.row
+				span(id="likes")=data.reactions.like
+				img(id="btnLike" src="../images/me_gusta.jpg" width="50" height="50")
+				span(id="haha")=data.reactions.haha
+				img(id="btnHaha" src="../images/me_divierte.jpg" width="50" height="50")
+				span(id="wow")=data.reactions.wow
+				img(id="btnWow" src="../images/me_asombra.jpg" width="50" height="50")
+				span(id="sad")=data.reactions.sad
+				img(id="btnSad" src="../images/me_entristece.jpg" width="50" height="50")
+				span(id="angry")=data.reactions.angry
+				img(id="btnAngry" src="../images/me_enfada.jpg" width="50" height="50")
+
+	script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js")
+	script(src="../javascripts/valorarlibro.js")

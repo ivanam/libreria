@@ -31,6 +31,10 @@ app.use('/users', users);
     Definicion de las rutas del servidor
 */
 app.use('/', routes);
+
+app.use('/libro',routes);
+
+
 app.use('/api/libro', libros);
 app.use('/api/libro/:title/reactions', libros);
 

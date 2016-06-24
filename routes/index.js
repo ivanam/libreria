@@ -1,13 +1,26 @@
 var express = require('express');
 var router = express.Router();
+var models = require("./models");
+var LibroModel = models.LibroModel;
 
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-   res.render('index.jade');
-   console.log("Pagina principal");
-  res.render('busqueda.jade');
+	res.render('index.jade');
+    console.log("Pagina principal");
+});
 
+
+router.get('/libro/:title',function(req,res,next){
+
+	var titulo = req.params.title;
+	LibroModel.find({title:titulo},function(err,docs){
+
+		if (docs.length != 0 ){
+			res.render('mostrarlibro.jade',{data:docs[0]});
+		}
+	})
+	
 });
 
 //agregado borrar
