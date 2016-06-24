@@ -48,11 +48,11 @@ router.get('/:title',function(req,res, next){
 
 		}else{
 			//res.send("ESTE LIBRO NO SE ENCUENTRA DISPONIBLE EN LA BASE DE DATOS");
-			var id = docs[0].title;
+			var id = req.params.title;
 
 			client.get("https://www.googleapis.com/books/v1/volumes?q="+id, function(data,response){
 		
-				res.send(data["items"][0]);
+				res.send(data);
 				//res.render("listado.jade", {valores:data["items"]});
 			});
 		}

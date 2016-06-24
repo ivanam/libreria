@@ -1,0 +1,24 @@
+head
+	meta(charset="UTF-8")
+	meta(name="viewport", content="width=device-width, initial-scale=1")
+	title TP3 - AppWeb - LiberBook
+	link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css")
+	
+	link(href="https://fonts.googleapis.com/css?family=Kaushan+Script",rel="stylesheet",type="text/css")
+
+body 
+	
+	br
+	.container
+		.row
+			.span12
+				form(id="custom-search-form" class="form-search.form-horizontal.pull-right")
+					.input-group
+						input(type="text", class="search-query mac-style",placeholder="Search" action="/libros" method="GET")
+						btn .btn btn-default
+							Search
+
+						
+
+	script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+	script(src='/javascripts/main.js')

@@ -4,8 +4,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index.jade');
-    console.log("Pagina principal");
+  // res.render('index.jade');
+  //   console.log("Pagina principal");
+  res.render('busqueda.jade');
+
 });
 
 //agregado borrar
