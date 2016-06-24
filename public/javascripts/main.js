@@ -1,6 +1,7 @@
 angular.module('angularTodo', []);  
 function mainController($scope, $http) {  
     $scope.formData = {};
+    $scope.LibrosResultados=[];
 
     // Cuando se cargue la página, pide del API Libro
     $http.get('/api/libro')
@@ -38,6 +39,71 @@ function mainController($scope, $http) {
             });
     };
 
+    $scope.buscar = function(){
+        //en base a una propiedad si es true es nuestro
+        console.log($scope.libro);
+        //limpiar la busqueda anterior
+        $scope.LibrosResultados=[];
+       $http.get('/api/libro/'+$scope.libro.titulo)
+        .success(function(data) {
+            items=data.items;
+            angular.forEach(items, function(item) {
+                Precio = "Falta";
+                Thumbnail = "/images/noDisponible.png";
+                Title = "Titulo No disponible";
+                Language= "Lenguaje no disponible";
+                Author = "Autor no disponible";
+                Description= "Descripcion no disponible";
+
+               if (validar(item.saleInfo)){
+                    if (validar(item.saleInfo.listPrice)){
+                        if (validar(item.saleInfo.listPrice.amount)){
+                            Precio = item.saleInfo.listPrice.amount;
+                        }
+                    }
+               }; //buscar la forma de hacer mas simple en un Y
+               
+               if (validar(item.volumeInfo)){
+                    if (validar(item.volumeInfo.imageLinks) && validar(item.volumeInfo.imageLinks.thumbnail)){
+                        Thumbnail = item.volumeInfo.imageLinks.thumbnail;
+                    }
+                    if (validar(item.volumeInfo.language)){
+                        Lenguaje = item.volumeInfo.language;
+                    }
+                    if (validar(item.volumeInfo.authors)){
+                        Author= item.volumeInfo.authors[0]; //ver
+                    }
+                    if (validar(item.volumeInfo.description)){
+                        Description = item.volumeInfo.description;
+                    }
+                    if (validar(item.volumeInfo.title)){
+                        Title = item.volumeInfo.title;
+                    }
+               } 
+                $scope.LibrosResultados.push({
+                    thumbnail: Thumbnail,
+                    title: Title,
+                    language: Language,
+                    author: Author,
+                    description: Description,
+                    precio: Precio
+                });           
+            });
+       })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        });
+        
+    }
+    /*Verifica si un campo se encuentra no definido*/
+    function validar(campo){
+        if (campo === undefined){
+            return false;
+        }else{
+            return true;
+        }
+    }
+        
 
 }
 
