@@ -1,20 +1,25 @@
-  <div class="card-deck-wrapper" style="width: 300px;height:300px;">
-    <div class="card-deck">
+<h1 id="resultados" hidden="true"> Resultados de la búsqueda</h1>
+<div class="pin-layout">
+    <div  ng-repeat="libro in LibrosResultados">
+      <div align="center">
+     	 <div class="thumbnails">  
+	          <img ng-src="{{libro.thumbnail}}">
+	           <div align="center">
 
-      <div class="card" ng-repeat="libro in LibrosResultados" ng-model="contador" ng-init="contador=0">
-        <img class="card-img-top" src={{libro.thumbnail}}  width="240" height="200" alt="Card image cap">
-          <p>{{$index}} </p>
-          <div ng-if="$index == 0" >
-            <p> nes 0 o 3 </p>
-          </div>
+		            <form method="post" action="/api/libro/{{libro.id}}">
+						<input name="agregar" type="image" src="/images/agregar.png" width="35" height="35">
+					</form>
 
-          <div class="card-block">
-          <h4 class="card-title">{{libro.title}}</h4>
-          <p class="card-text">{{libro.description}}}</p>
-          <p class="card-text">{{libro.author}} </p>
-          <p class="card-text"><small class="text-muted">Precio:{{libro.precio}}, Lenguaje:{{libro.lenguaje}}</small></p>
-        </div>
+				</div>
+	            <h3>{{libro.title}}</h3>
+	            <p> {{libro.description}}}</p>
+	            <p> {{libro.author}} </p>
+	            <p> Precio:${{libro.precio}}, Lenguaje:{{libro.language}}</p>
+		</div>
       </div>
-    </div>
+	</div>
 </div>
+
+
+
  
