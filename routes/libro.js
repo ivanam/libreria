@@ -47,11 +47,6 @@ router.get('/:title',function(req,res, next){
 });
 
 
-// router.post('/:id_google',function(req,res,next){
-// 	res.send(req.params.id_google);
-// });
-
-
 router.post('/:id_google',function(req, res, next){
 
 	//Aca rebir el id de google buscar la informacion
@@ -62,8 +57,10 @@ router.post('/:id_google',function(req, res, next){
 		var libro = LibroModel();
 		var titulo = data["volumeInfo"]["title"];
 		if(data.hasOwnProperty('saleInfo')){
-			console.log(data["volumeInfo"]);
-			libro.precios_locales = [data["saleInfo"]["retailPrice"]["amount"]];
+			if (data["saleInfo"].hasOwnProperty('retailPrice'))
+				libro.precios_locales = [data["saleInfo"]["retailPrice"]["amount"]];
+			else
+				libro.precios_locales = [];
 		}else{
 			console.log("No tiene la propiedad");
 			libro.precios_locales = [];

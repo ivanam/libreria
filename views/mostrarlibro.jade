@@ -11,7 +11,7 @@ body
 	nav(class="navbar navbar-default navbar-static-top")
 		.container
 			.navbar-header
-				a(class="navbar-brand") Liberbook
+				a(class="navbar-brand" href="../") Liberbook
 
 
 	.container
@@ -25,11 +25,17 @@ body
 				.row
 					p(id="titulo")='Titulo: ' + valores.title
 				.row
-					p='Autor:' + autor
+					if (typeof(autor) == 'undefined')
+						p Autor: No se encontro autor
+					else
+						p='Autor:' + autor
 				.row
 					p='Editor:' + editor
 				.row
-					p='Fecha de Publicación:' + fecha_publicacion
+					if (typeof(fecha_publicacion) == 'undefined')
+						p Fecha de Publicación: No hay fecha de publicación
+					else
+						p='Fecha de Publicación:' + fecha_publicacion
 				.row
 					
 					if (typeof(descripcion) == 'undefined')

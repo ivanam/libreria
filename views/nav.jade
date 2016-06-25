@@ -1,1 +1,11 @@
-include nav.html
+nav(class="navbar navbar-default navbar-static-top")
+		.container
+			.navbar-header
+				img(src="/images/logo_.png" style= "width:50px; text-align: left;")
+				a(class="navbar-brand" href="/") Liberbook
+
+			.collapse.navbar-collapse.navbar-ex1-collapse
+				form(class="navbar-form navbar-left" role="search")
+					.form-group
+						input(name="busqueda" type="text" class="form-control" placeholder="Ej. Harry Potter" ng-model="libro.titulo")
+					button(type="submit" class="btn btn-default" ng-click="buscar()") Buscar
