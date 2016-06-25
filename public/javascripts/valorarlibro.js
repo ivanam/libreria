@@ -1,6 +1,9 @@
 $("#btnLike").click(function(){
 
-	$.post("../api/libro/leandro titulo/reactions/like",function success(data){
+	var titulo = $("#titulo").text().split(": ")[1];
+	var url = "../api/libro/"+titulo+"/reactions/like";
+	console.log(url);
+	$.post(url,function success(data){
 		var span = $("#likes");
 		span.text((parseInt(span.text()) + 1).toString());
 	})
@@ -8,7 +11,9 @@ $("#btnLike").click(function(){
 
 $("#btnHaha").click(function(){
 
-	$.post("../api/libro/leandro titulo/reactions/haha",function success(data){
+	var titulo = $("#titulo").text().split(": ")[1];
+	var url = "../api/libro/"+titulo+"/reactions/haha"; 
+	$.post(url,function success(data){
 		var span = $("#haha");
 		span.text((parseInt(span.text()) + 1).toString());
 	})
@@ -16,7 +21,9 @@ $("#btnHaha").click(function(){
 
 $("#btnWow").click(function(){
 
-	$.post("../api/libro/leandro titulo/reactions/wow",function success(data){
+	var titulo = $("#titulo").text().split(": ")[1];
+	var url = "../api/libro/"+titulo+"/reactions/wow"; 
+	$.post(url,function success(data){
 		var span = $("#wow");
 		span.text((parseInt(span.text()) + 1).toString());
 	})
@@ -24,7 +31,9 @@ $("#btnWow").click(function(){
 
 $("#btnSad").click(function(){
 
-	$.post("../api/libro/leandro titulo/reactions/sad",function success(data){
+	var titulo = $("#titulo").text().split(": ")[1];
+	var url = "../api/libro/"+titulo+"/reactions/sad"; 
+	$.post(url,function success(data){
 		var span = $("#sad");
 		span.text((parseInt(span.text()) + 1).toString());
 	})
@@ -32,7 +41,9 @@ $("#btnSad").click(function(){
 
 $("#btnAngry").click(function(){
 
-	$.post("../api/libro/leandro titulo/reactions/angry",function success(data){
+	var titulo = $("#titulo").text().split(": ")[1];
+	var url = "../api/libro/"+titulo+"/reactions/angry"; 
+	$.post(url,function success(data){
 		var span = $("#angry");
 		span.text((parseInt(span.text()) + 1).toString());
 	})
