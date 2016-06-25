@@ -13,8 +13,21 @@ body
 			.navbar-header
 				img(src="/images/logo_.png" style= "width:50px; text-align: left;")
 				a(class="navbar-brand" href="../") Liberbook
+				a(class="navbar-brand" href="#") Coleccion
 
 
+	-var longitud=data.length
+	- for (var x = 0; x < longitud; x++)
+		if x % 3 == 0
+			.row
+		.col-md-4.col-xs-12
+			.thumbnail
+				a.responsive
+					center 
+						a.btn(data-toggle="modal", href="#myModal")
+							img(src=data[x].imagen, class='img-thumbnail')
+			.caption
+				a(href='../libros/'+data[x].title)=data[x].title
 	
 
 	script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js")
