@@ -47,22 +47,39 @@ router.get('/:title',function(req,res, next){
 });
 
 
-router.post('/',function(req, res, next){
+// router.post('/:id_google',function(req,res,next){
+// 	res.send(req.params.id_google);
+// });
+
+
+router.post('/:id_google',function(req, res, next){
 
 	//Aca rebir el id de google buscar la informacion
-	// y crear el nuevo objeto 
-	var libro = LibroModel();
-	libro._id = "Messi y el mundial de su vida";
-	libro.title = "Messi y el mundial de su vida";
-	libro.id_google = "H-xtAwAAQBAJ";
-	libro.precios_locales = [78.99];
-	libro.reactions.sad = 0;
-	libro.reactions.angry = 0;
-	libro.reactions.like = 0;
-	libro.reactions.haha = 0;
-	libro.reactions.wow = 0;
-	libro.save();
-	res.end();
+	// y crear el nuevo objeto
+
+	var id_google = req.params.id_google;
+	client.get("https://www.googleapis.com/books/v1/volumes/"+id_google, function(data,response){
+		var libro = LibroModel();
+		var titulo = data["volumeInfo"]["title"];
+		if(data.hasOwnProperty('saleInfo')){
+			console.log(data["volumeInfo"]);
+			libro.precios_locales = [data["saleInfo"]["retailPrice"]["amount"]];
+		}else{
+			console.log("No tiene la propiedad");
+			libro.precios_locales = [];
+		}
+		libro._id = titulo;
+		libro.id_google = req.params.id_google;
+		libro.title = titulo;
+		libro.reactions.sad = 0;
+		libro.reactions.angry = 0;
+		libro.reactions.like = 0;
+		libro.reactions.haha = 0;
+		libro.reactions.wow = 0;
+		libro.save();
+		res.redirect("/libro/"+titulo);
+				
+	});
 });
 
 /*

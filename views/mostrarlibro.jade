@@ -31,9 +31,16 @@ body
 				.row
 					p='Fecha de Publicación:' + fecha_publicacion
 				.row
-					p='Descripcion: ' + descripcion
+					
+					if (typeof(descripcion) == 'undefined')
+						p Descripcion: No hay descripción disponible
+					else
+						p='Descripción: ' + descripcion
 				.row
-					span='Precio Aproximado: $' + valores.precios_locales
+					if (valores.precios_locales.length == 0)
+						span='Precio Aproximado: Precio no disponible'
+					else
+						span='Precio Aproximado: $' + valores.precios_locales
 				br
 				.row
 					span(id="likes")=valores.reactions.like
