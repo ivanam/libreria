@@ -49,10 +49,13 @@ router.get('/:title',function(req,res, next){
 
 router.post('/',function(req, res, next){
 
+	//Aca rebir el id de google buscar la informacion
+	// y crear el nuevo objeto 
 	var libro = LibroModel();
-	libro._id = "leandro1";
-	libro.title = "leandro titulo2";
-	libro.precios_locales = [30.2];
+	libro._id = "Messi y el mundial de su vida";
+	libro.title = "Messi y el mundial de su vida";
+	libro.id_google = "H-xtAwAAQBAJ";
+	libro.precios_locales = [78.99];
 	libro.reactions.sad = 0;
 	libro.reactions.angry = 0;
 	libro.reactions.like = 0;

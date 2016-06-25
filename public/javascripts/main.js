@@ -54,6 +54,7 @@ function mainController($scope, $http) {
                 Language= "Lenguaje no disponible";
                 Author = "Autor no disponible";
                 Description= "Descripcion no disponible";
+                Id="ERROR";//VER ESTO
 
                if (validar(item.saleInfo)){
                     if (validar(item.saleInfo.listPrice)){
@@ -68,7 +69,7 @@ function mainController($scope, $http) {
                         Thumbnail = item.volumeInfo.imageLinks.thumbnail;
                     }
                     if (validar(item.volumeInfo.language)){
-                        Lenguaje = item.volumeInfo.language;
+                        Language = item.volumeInfo.language;
                     }
                     if (validar(item.volumeInfo.authors)){
                         Author= item.volumeInfo.authors[0]; //ver
@@ -80,17 +81,25 @@ function mainController($scope, $http) {
                         Title = item.volumeInfo.title;
                     }
                } 
+               if (validar(item.id)){
+                Id = item.id;
+               }
                 $scope.LibrosResultados.push({
                     thumbnail: Thumbnail,
                     title: Title,
                     language: Language,
                     author: Author,
                     description: Description,
-                    precio: Precio
-                });           
+                    precio: Precio,
+                    id: Id
+                });
+                $('#resultados').show();
+                $('#resultados').html('Resultados encontrados:'+$scope.LibrosResultados.length);
+                console.log("Resultados:"+$scope.LibrosResultados.length);           
             });
        })
         .error(function(data) {
+            $('#resultados').hide();
             console.log('Error: ' + data);
         });
         
@@ -103,6 +112,7 @@ function mainController($scope, $http) {
             return true;
         }
     }
+
         
 
 }

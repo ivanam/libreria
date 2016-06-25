@@ -2,11 +2,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color:green;
-  border-color: green;
-  background-image: url("/images/fondo2.jpg");
-  padding-top: 70px; /*Lo pedia bootstrap http://librosweb.es/libro/bootstrap_3/capitulo_6/barras_de_navegacion.html*/
-  margin-bottom: 0px;
+  background-image: url("/images/fondo2.jpg"); 
 }
 
 a {
@@ -45,11 +41,12 @@ text-align: center;
 
 /*Fondo miniatura*/
 
-.thumbnail{
+/*.thumbnail{
     background-color: rgba(0,0,0,0.075); 
     border: 0px;
     border-radius: 4px;
-}
+}*/
+
 p{font-family: 'Kaushan Script', cursive;
 color: white;
     background-color: rgba(0,0,0,0.5);
@@ -79,3 +76,21 @@ border: 1px solid  orange;
 }
 
 #tallModal .modal-body p { margin-bottom: 900px }
+
+
+.pin-layout{
+  column-count: 4; /*Diseño multicolumnas (4)*/
+  column-gap:0px; /*separacion*/
+  -moz-column-count:4;
+  -moz-column-gap:0px; /*Mozilla*/
+  -webkit-column-count:4;
+  -webkit-column-gap:0px; /*Chrome*/
+}
+.thumbnail{
+  display:inline-block;
+  margin:5px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 5px;
+  background:#fff;
+}
