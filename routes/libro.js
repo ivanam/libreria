@@ -65,6 +65,15 @@ router.post('/:id_google',function(req, res, next){
 			console.log("No tiene la propiedad");
 			libro.precios_locales = [];
 		}
+		if(data["volumeInfo"].hasOwnProperty("imageLinks")){
+			if (data["volumeInfo"]["imageLinks"].hasOwnProperty('thumbnail'))
+				libro.imagen = data["volumeInfo"]["imageLinks"]["thumbnail"];
+			else
+				libro.imagen = "";
+		}else{
+			console.log("No tiene la propiedad");
+			libro.imagen = "";
+		}
 		libro._id = titulo;
 		libro.id_google = req.params.id_google;
 		libro.title = titulo;
@@ -74,7 +83,7 @@ router.post('/:id_google',function(req, res, next){
 		libro.reactions.haha = 0;
 		libro.reactions.wow = 0;
 		libro.save();
-		res.redirect("/libro/"+titulo);
+		res.redirect("/libros/"+titulo);
 				
 	});
 });

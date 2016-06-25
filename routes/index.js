@@ -13,8 +13,8 @@ router.get('/', function (req, res, next) {
 });
 
 
-router.get('/libro/:title',function(req,res,next){
-
+router.get('/libros/:title',function(req,res,next){
+	
 	var titulo = req.params.title;
 	LibroModel.find({title:titulo},function(err,docs){
 		if (docs.length != 0 ){

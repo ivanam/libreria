@@ -32,7 +32,7 @@ app.use('/users', users);
 */
 app.use('/', routes);
 
-app.use('/libro',routes);
+app.use('/libros',routes);
 
 
 app.use('/api/libro', libros);

@@ -6,6 +6,7 @@ var LibroModel = mongoose.model('LibroModel',{
     title: String,
     precios_locales: [Number],
     id_google: String,
+    imagen: String,
     reactions: {
 
         like: Number,
