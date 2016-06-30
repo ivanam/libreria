@@ -11,19 +11,19 @@ body
 	nav(class="navbar navbar-default navbar-static-top")
 		.container
 			.navbar-header
-				img(src="/images/logo_.png" style= "width:50px; text-align: left;")
+				a(class="navbar-left") 
+					img(class src="/images/logo_.png" style= "width:50px;")
 				a(class="navbar-brand" href="../") Liberbook
 				a(class="navbar-brand" href="../libros") Coleccion
 
 
 	.container
 		.row
-			.col-md-6.col-md-offset-3.col-sm-1
+			.col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-3
 				a.thumbnail
 					img(src=imagen)
 		.row
-			.col-md-6.col-md-offset-3.col-xs-11.col-xs-offset-1.infoLibros
-				
+			.col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-3
 				.row
 					p(id="titulo")='Titulo: ' + valores.title
 				.row
@@ -51,16 +51,17 @@ body
 						span='Precio Aproximado: $' + valores.precios_locales
 				br
 				.row
-					span(id="likes")=valores.reactions.like
-					img(id="btnLike" src="../images/me_gusta.jpg" width="50" height="50")
-					span(id="haha")=valores.reactions.haha
-					img(id="btnHaha" src="../images/me_divierte.jpg" width="50" height="50")
-					span(id="wow")=valores.reactions.wow
-					img(id="btnWow" src="../images/me_asombra.jpg" width="50" height="50")
-					span(id="sad")=valores.reactions.sad
-					img(id="btnSad" src="../images/me_entristece.jpg" width="50" height="50")
-					span(id="angry")=valores.reactions.angry
-					img(id="btnAngry" src="../images/me_enfada.jpg" width="50" height="50")
+					.col-md-12.col-md-offset-3.col-sm-12.col-sm-offset-1
+						span(id="likes")=valores.reactions.like
+						img(id="btnLike" src="../images/me_gusta.jpg" width="50" height="50")
+						span(id="haha")=valores.reactions.haha
+						img(id="btnHaha" src="../images/me_divierte.jpg" width="50" height="50")
+						span(id="wow")=valores.reactions.wow
+						img(id="btnWow" src="../images/me_asombra.jpg" width="50" height="50")
+						span(id="sad")=valores.reactions.sad
+						img(id="btnSad" src="../images/me_entristece.jpg" width="50" height="50")
+						span(id="angry")=valores.reactions.angry
+						img(id="btnAngry" src="../images/me_enfada.jpg" width="50" height="50")
 
 	script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js")
 	script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js' integrity='sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS' crossorigin='anonymous')
