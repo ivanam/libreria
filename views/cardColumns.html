@@ -1,25 +1,25 @@
-<h1 id="resultados" hidden="true"> Resultados de la búsqueda</h1>
-<div class="pin-layout">
-    <div  ng-repeat="libro in LibrosResultados">
-      <div align="center">
-     	 <div class="thumbnails">  
-	          <img ng-src="{{libro.thumbnail}}">
-	           <div align="center">
-
-		            <form method="post" action="/api/libro/{{libro.id}}">
-						<input name="agregar" type="image" src="/images/agregar.png" width="35" height="35">
-					</form>
-
-				</div>
-	            <h3>{{libro.title}}</h3>
-	            <p> {{libro.description}}}</p>
-	            <p> {{libro.author}} </p>
-	            <p> Precio:${{libro.precio}}, Lenguaje:{{libro.language}}</p>
-		</div>
-      </div>
-	</div>
-</div>
-
-
-
+<link rel = "stylesheet" href="stylesheets/style.css">
  
+<div class="container-fluid" >
+  <div ng-repeat="libro in LibrosResultados">
+
+  <div ng-if="$index % 3 == 0">
+    <div class="row"> 
+    </div>
+  </div>
+     <div class="col-md-4">
+      <div class="thumbnails" align="center">  
+        <img ng-src="{{libro.thumbnail}}">
+          <form method="post" ng-action="/api/libro/{{libro.id}}">
+            <input name="agregar" type="image" src="/images/agregar.png" width="35" height="35">
+         </form>
+          <h3>{{libro.title}}</h3>
+          <p> {{libro.description}}</p>
+          <p> {{libro.author}} </p>
+          <p> Precio:${{libro.precio}}, Lenguaje:{{libro.language}}</p>
+        </div>
+      </div>
+      </div>
+
+
+  </div>

@@ -1,29 +1,6 @@
 
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("/images/fondo2.jpg"); 
-}
-
-a {
-  color: #ecae0e;
-}
-
-.jumbotron{
-background-color: #5B1F03;
-}
-.jumbotron h1{
-color:#FFAF1B;
-
-}
-
-/*.navbar-default {
-    background-color: black;
-    border-color: black;
-    color: #ecae0e;
-}*/
-
 /*Tipografia*/
+/*
 h1 {font-family: 'Kaushan Script', cursive;
 color: white;
 }
@@ -33,40 +10,13 @@ h3 {font-family: 'Kaushan Script', cursive;
 text-align: center;
     color: rgb(189, 211, 245);
     background-color: rgba(0,0,0,0.5);
-}
+} */
 #formularioLogin{
   width: 40%;
   margin: 0 auto;
 }
-
-/*Fondo miniatura*/
-
-/*.thumbnail{
-    background-color: rgba(0,0,0,0.075); 
-    border: 0px;
-    border-radius: 4px;
-}*/
-
-p{font-family: 'Kaushan Script', cursive;
-color: white;
-    background-color: rgba(0,0,0,0.5);
-    
     
 }
-.text-muted {
-    color: rgba(255,255,255,1);
-}
-.footer{
-    padding-top: 100px 100px 100px 100px;
-}
-/*Borde de imagen*/
-/*
-.img-thumbnail {
-background-color:  orange;
-border: 1px solid  orange;
-}
-*/
-
 
 .modal.modal-wide .modal-dialog {
   width: 90%;
@@ -79,18 +29,25 @@ border: 1px solid  orange;
 
 
 .pin-layout{
-  column-count: 4; /*Diseño multicolumnas (4)*/
-  column-gap:0px; /*separacion*/
-  -moz-column-count:4;
+  column-count: 3; /*Diseño multicolumnas (4)*/
+  column-gap:5px; /*separacion*/
+  -moz-column-count:3;
   -moz-column-gap:0px; /*Mozilla*/
-  -webkit-column-count:4;
+  -webkit-column-count:3;
   -webkit-column-gap:0px; /*Chrome*/
+
 }
 .thumbnail{
   display:inline-block;
   margin:5px;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
   box-shadow: 5px;
-  background:#fff;
 }
+h2 {font-family: 'Kaushan Script', cursive;
+color: white;}
+/*
+.body{}
+  background: linear-gradient(to bottom, grey 0%,grey 50%,#000000 50%,white 50%,white 100%);}
+  */
+

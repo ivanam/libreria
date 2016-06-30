@@ -1,13 +1,14 @@
-angular.module('angularTodo', []);  
-function mainController($scope, $http) {  
+var app = angular.module('angularTodo', [])
+
+
+app.controller('mainController', function mainController($scope, $http) {  
     $scope.formData = {};
     $scope.LibrosResultados=[];
 
     // Cuando se cargue la página, pide del API Libro
     $http.get('/api/libro')
         .success(function(data) {
-            $scope.libro
-       = data;
+            $scope.libro = data;
             console.log(data)
         })
         .error(function(data) {
@@ -121,6 +122,9 @@ function mainController($scope, $http) {
         });
         
     }
+    $scope.mostrar = function() {
+        console.log("test");
+    }
     /*Verifica si un campo se encuentra no definido*/
     function validar(campo){
         if (campo === undefined){
@@ -129,12 +133,4 @@ function mainController($scope, $http) {
             return true;
         }
     }
-
-        
-
-}
-
-
-
-
-
+});
