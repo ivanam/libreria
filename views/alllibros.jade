@@ -11,13 +11,15 @@ body
 	nav(class="navbar navbar-default navbar-static-top")
 		.container
 			.navbar-header
-				img(src="/images/logo_.png" style= "width:50px; text-align: left;")
+				a(class="navbar-left")
+					img(src="/images/logo_.png" style= "width:50px;")
 				a(class="navbar-brand" href="../") Liberbook
 				a(class="navbar-brand" href="#") Coleccion
 
 
 	-var longitud=data.length
-	- for (var x = 0; x < longitud; x++)
+	.container
+	-for (var x = 0; x < longitud; x++)
 		if x % 3 == 0
 			.row
 		.col-md-4.col-xs-12
