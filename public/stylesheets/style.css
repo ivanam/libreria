@@ -1,21 +1,8 @@
+h3 {font-family: 'Kaushan Script', cursive;}
 
-/*Tipografia*/
-/*
-h1 {font-family: 'Kaushan Script', cursive;
-color: white;
-}
-h2 {font-family: 'Kaushan Script', cursive;
-color: white;}
-h3 {font-family: 'Kaushan Script', cursive;
-text-align: center;
-    color: rgb(189, 211, 245);
-    background-color: rgba(0,0,0,0.5);
-} */
 #formularioLogin{
   width: 40%;
   margin: 0 auto;
-}
-    
 }
 
 .modal.modal-wide .modal-dialog {
@@ -37,17 +24,13 @@ text-align: center;
   -webkit-column-gap:0px; /*Chrome*/
 
 }
-.thumbnail{
+.div.thumbnail{
   display:inline-block;
   margin:5px;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 5px;
 }
-h2 {font-family: 'Kaushan Script', cursive;
-color: white;}
-/*
-.body{}
-  background: linear-gradient(to bottom, grey 0%,grey 50%,#000000 50%,white 50%,white 100%);}
-  */
-
+body{
+  background-color: #ddd;
+}
