@@ -32,5 +32,17 @@ h3 {font-family: 'Kaushan Script', cursive;}
   box-shadow: 5px;
 }
 body{
-  background-color: #ddd;
+  /*background-color: #ddd;*/
+  background:url(/images/blue.gif); /* Nuestra textura */
+  background-repeat:repeat; /* Indicamos que la textura se repetira */
+  background-attachment: fixed; /* Establecemos una posicion fija para la textura */
+  /* Eliminamos la propiedad de background-size */
+
+}
+.navbar-default {
+    background-color: rgba(245, 245, 245, 0.24);
+    border-color: rgba(0,0,0,0.075);
+  }
+.container-fluid{
+padding-top: 100px;
 }

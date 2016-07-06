@@ -1,3 +1,5 @@
+<script src="/javascripts/angular-animate.js"></script>
+<link rel="stylesheet" href="/stylesheets/animation.css">
 <div class="container-fluid" >
   <div ng-repeat="libro in LibrosResultados">
 
@@ -8,11 +10,12 @@
      <div class="col-md-4">
       <div class="thumbnails" align="center">  
         <img ng-src="{{libro.thumbnail}}">
+
+        <div id="formulario" ng-if="libro.description != 'En coleccion'">
            <form method="post" action={{'/api/libro/'+libro.id}}>
             <input name="agregar" type="image" src="/images/agregar.png" width="35" height="35">
          </form>
-         
-         
+         </div>
           <h3>{{libro.title}}</h3>
           <p> {{libro.description}}</p>
           <p> {{libro.author}} </p>
@@ -20,6 +23,20 @@
         </div>
       </div>
       </div>
-
-
   </div>
+  <script type="text/javascript">
+    
+
+$(document).ready(function(){
+ 
+  $(window).scroll(function(){
+    var barra = $(window).scrollTop();
+    var posicion = barra * 0.40;
+ 
+    $('body').css({
+      'background-position': '0 ' + posicion + 'px'
+    });
+  });
+ 
+});
+  </script>

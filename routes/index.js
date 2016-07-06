@@ -33,7 +33,9 @@ router.get('/libros/:title',function(req,res,next){
 			client.get("https://www.googleapis.com/books/v1/volumes/"+docs[0].id_google, function(data,response){
 		        var image = data["volumeInfo"]["imageLinks"]["thumbnail"];
 		        var descripcion = data["volumeInfo"]["description"];
+		        if (validar(descripcion)){
 		        descripcion = descripcion.replace(/<br>|<p>|<\/p>|<b>|<\/b>/g," ");
+		    	}
 		        var autor = data["volumeInfo"]["authors"];
 		        var editor = data["volumeInfo"]["publisher"];
 		        var fecha_publicacion = data["volumeInfo"]["publishedDate"];
@@ -59,5 +61,12 @@ router.get('/prueba/:titulo', function(req,res,next){
     });
 });
 
-
+  /*Verifica si un campo se encuentra no definido*/
+    function validar(campo){
+        if (campo === undefined){
+            return false;
+        }else{
+            return true;
+        }
+    }
 module.exports = router;

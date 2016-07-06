@@ -33,6 +33,7 @@ router.get('/:title',function(req,res, next){
 			res.json(docs);
 
 		}else{
+			console.log("No esta en base....buscando en google libro.js");
 			//res.send("ESTE LIBRO NO SE ENCUENTRA DISPONIBLE EN LA BASE DE DATOS");
 			var id = req.params.title;
 
@@ -83,6 +84,7 @@ router.post('/:id_google',function(req, res, next){
 		libro.reactions.haha = 0;
 		libro.reactions.wow = 0;
 		libro.save();
+		console.log("LIBRO GUARDADO");
 		res.redirect("/libros/"+titulo);
 				
 	});

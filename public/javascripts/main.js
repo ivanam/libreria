@@ -1,4 +1,4 @@
-var app = angular.module('angularTodo', [])
+var app = angular.module('angularTodo',['ngAnimate']);
 
 
 app.controller('mainController', function mainController($scope, $http) {  
@@ -47,7 +47,13 @@ app.controller('mainController', function mainController($scope, $http) {
         $scope.LibrosResultados=[];
        $http.get('/api/libro/'+$scope.libro.titulo)
         .success(function(data) {
-            items=data.items;
+            var items;
+            if (!validar(data.items)){
+                items = data;
+                console.log("Esta en local");
+            }else{
+                items=data.items;
+            }
             angular.forEach(items, function(item) {
                 Precio = "Falta";
                 Thumbnail = "/images/noDisponible.png";
@@ -66,10 +72,15 @@ app.controller('mainController', function mainController($scope, $http) {
 
                 if (validar(item.id_google)){
                     //Esta en local
+                    console.log("ESTA EN LOCAL");
                     Precio = item.precios_locales;
                     Title = item.title;
                     Id = item.id_google;
                     Reactions = item.reactions; //VERTODO esto, falta el thumbnail, languagem auhor, description
+                    Thumbnail = "http://books.google.com.ar/books/content?id="+item.id_google+"&printsec=frontcover&img=1&zoom=1&source=gbs_api";
+                    Description="En coleccion";
+                    Author="";
+                    Languaje="";
 
                 }else{//esta en la api de google
 
