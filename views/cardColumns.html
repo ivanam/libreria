@@ -18,8 +18,9 @@
          </div>
           <h3>{{libro.title}}</h3>
           <p> {{libro.description}}</p>
-          <p> {{libro.author}} </p>
-          <p> Precio:${{libro.precio}}, Lenguaje:{{libro.language}}</p>
+          <p ng-if="libro.author != ''"> {{libro.author}} </p>
+          <p> Precio:${{libro.precio}}</p>
+          <p ng-if="libro.language != ''">Lenguaje:{{libro.language}}</p>
         </div>
       </div>
       </div>

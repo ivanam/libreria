@@ -80,7 +80,7 @@ app.controller('mainController', function mainController($scope, $http) {
                     Thumbnail = "http://books.google.com.ar/books/content?id="+item.id_google+"&printsec=frontcover&img=1&zoom=1&source=gbs_api";
                     Description="En coleccion";
                     Author="";
-                    Languaje="";
+                    Language="";
 
                 }else{//esta en la api de google
 
