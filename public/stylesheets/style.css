@@ -46,3 +46,15 @@ body{
 .container-fluid{
 padding-top: 100px;
 }
+
+iframe{
+    border-top-width: 0px;
+    margin-top: 100px;
+    border-left-width: 0px;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    margin-left: 200px;
+    margin-right: 200px;
+    width: 725px;
+    height: 100px;
+}

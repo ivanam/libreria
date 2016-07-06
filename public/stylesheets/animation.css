@@ -17,3 +17,8 @@
 
 
 }
+.imagen:hover{
+	-moz-box-shadow: 0 0 30px #000; -webkit-box-shadow:0 0 30px #000; box-shadow: 0 0 30px #000;
+	-webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}

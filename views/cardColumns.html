@@ -9,7 +9,7 @@
   </div>
      <div class="col-md-4">
       <div class="thumbnails" align="center">  
-        <img ng-src="{{libro.thumbnail}}">
+        <img class="imagen" ng-src="{{libro.thumbnail}}" ng-click="hacerPost(libro.id, libro.title)">
 
         <div id="formulario" ng-if="libro.description != 'En coleccion'">
            <form method="post" action={{'/api/libro/'+libro.id}}>
@@ -40,4 +40,4 @@ $(document).ready(function(){
   });
  
 });
-  </script>
+</script>

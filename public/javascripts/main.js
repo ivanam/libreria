@@ -1,7 +1,7 @@
 var app = angular.module('angularTodo',['ngAnimate']);
 
 
-app.controller('mainController', function mainController($scope, $http) {  
+app.controller('mainController', function mainController($scope, $http, $window) {  
     $scope.formData = {};
     $scope.LibrosResultados=[];
 
@@ -122,6 +122,7 @@ app.controller('mainController', function mainController($scope, $http) {
                     precio: Precio,
                     id: Id
                 });
+                $('#banner').hide();
                 $('#resultados').show();
                 $('#resultados').html('Resultados encontrados:'+$scope.LibrosResultados.length);
                 console.log("Resultados:"+$scope.LibrosResultados.length);           
@@ -143,6 +144,19 @@ app.controller('mainController', function mainController($scope, $http) {
         }else{
             return true;
         }
+    }
+    $scope.hacerPost = function(id, titulo){
+
+        $http.post('api/libro/'+id);
+        $window.location.href="/libros/"+titulo;
+        /*
+        .success(function (data,titulo){
+            $window.location.href ="/libros/"+titulo;
+        })
+        .error(function (data){
+            alert("Hubo error al agregarlo a la coleccion");
+        });
+        */
     }
     
 });
